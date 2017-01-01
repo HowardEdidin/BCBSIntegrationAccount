@@ -95,7 +95,7 @@
     <Map Include="DatabaseToEligibilityRequest.btm">
       <TypeName>DatabaseToEligibilityRequest</TypeName>
       <Namespace>BCBSIntegrationAccount</Namespace>
-      <SubType>Task</SubType>
+      <SubType>Designer</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +109,13 @@
       <Namespace>BCBSIntegrationAccount</Namespace>
       <SubType>Designer</SubType>
     </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="EligibilityRequestToDatabase.btm">
+      <TypeName>EligibilityRequestToDatabase</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Task</SubType>
+    </Map>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.CurrentVersion.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Azure Integration SDK\IntegrationTasks.targets" />
