@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72AF5B48-87A6-486B-8AF8-9389E3C64734}</ProjectGuid>
+    <ProjectTypeGuids>{EF7E3281-CD33-11D4-8326-00C04FA0CE8D};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>BCBSIntegrationAccount</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Schema Include="Database.xsd">
+      <SubType>Task</SubType>
+      <TypeName>Database</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="eligibilityrequest.xsd">
+      <TypeName>eligibilityrequest</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+    <Schema Include="eligibilityresponse.xsd">
+      <TypeName>eligibilityresponse</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="claim.xsd">
+      <TypeName>claim</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+    <Schema Include="claimresponse.xsd">
+      <TypeName>claimresponse</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="explanationofbenefit.xsd">
+      <TypeName>explanationofbenefit</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="xml.xsd">
+      <TypeName>xml</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+    <Schema Include="xmldsig-core-schema.xsd">
+      <TypeName>xmldsig_core_schema</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="fhir-base.xsd">
+      <TypeName>fhir_base</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="fhir-xhtml.xsd">
+      <TypeName>fhir_xhtml</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="DatabaseToEligibilityRequest.btm">
+      <TypeName>DatabaseToEligibilityRequest</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="communication.xsd">
+      <TypeName>communication</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+    <Schema Include="communicationrequest.xsd">
+      <TypeName>communicationrequest</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.CurrentVersion.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Azure Integration SDK\IntegrationTasks.targets" />
+</Project>
