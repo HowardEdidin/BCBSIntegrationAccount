@@ -66,11 +66,6 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="xml.xsd">
-      <TypeName>xml</TypeName>
-      <Namespace>BCBSIntegrationAccount</Namespace>
-      <SubType>Designer</SubType>
-    </Schema>
     <Schema Include="xmldsig-core-schema.xsd">
       <TypeName>xmldsig_core_schema</TypeName>
       <Namespace>BCBSIntegrationAccount</Namespace>
