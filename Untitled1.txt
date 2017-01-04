@@ -1,0 +1,86 @@
+  "inputs": "@json(xml(base64toBinary(item()['payload'])))",
+
+
+   "Transform_XML": {
+                        "inputs": {
+                            "content": "@xml(base64toBinary(item()?['Payload']))",
+                            "function": {
+                                "id": "/subscriptions/16f69561-fe63-4e69-809c-5283aeecd013/resourcegroups/demo/providers/microsoft.web/sites/edidemo/functions/transformfunction1"
+                            },
+                            "integrationAccount": {
+                                "map": {
+                                    "name": "Inbound4010850_to_OrderFile"
+                                }
+                            }
+                        },
+                        "runAfter": {},
+                        "type": "Xslt"
+                    }
+                },
+
+
+
+		       "actions": {
+                    "Compose": {
+                        "inputs": "@json(xml(base64toBinary(item()['payload'])))",
+                        "runAfter": {
+                            "Transform_XML": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "Compose"
+                    },
+                    "Insert_Purchase_Order": {
+                        "inputs": {
+                            "body": {
+                                "AuthorizedRepresentatiive": "@{outputs('Compose')['ns0:X12_00401_850']['ns0:PER']['PER02']}",
+                                "CustomerId": "@{outputs('Compose')['ns0:X12_00401_850']['ns0:BEG']['BEG08']}",
+                                "DeliveryRequestDate": "@{outputs('Compose')['ns0:X12_00401_850']['ns0:DTM']['DTM02']}",
+                                "InvoiceTypeCode": "@{outputs('Compose')['ns0:X12_00401_850']['ns0:BEG']['BEG02']}",
+                                "PODate": "@{outputs('Compose')['ns0:X12_00401_850']['ns0:BEG']['BEG05']}",
+                                "POTypeCode": "@{outputs('Compose')['ns0:X12_00401_850']['ns0:BEG']['BEG02']}",
+                                "PoNumber": "@int(outputs('Compose')['ns0:X12_00401_850']['ns0:BEG']['BEG03'])"
+                            },
+                            "host": {
+                                "api": {
+                                    "runtimeUrl": "https://logic-apis-northcentralus.azure-apim.net/apim/sql"
+                                },
+                                "connection": {
+                                    "name": "@parameters('$connections')['sql_1']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "path": "/datasets/default/tables/@{encodeURIComponent(encodeURIComponent('[dbo].[PurchaseOrder]'))}/items"
+                        },
+
+			{"code":"InvalidTemplate","message":"Unable to process template language expressions in action 'HTTP' inputs at line '1' and column '1377': 'The template language function 'base64toBinary' expects its parameter to be a string. The provided value is of type 'Object'. Please see https://aka.ms/logicexpressions#base64ToBinary for usage details.'."}
+
+$content
+
+{"code":"BadRequest","message":"Http request failed with status code 'ConnectFailure' and status message: 'Unable to connect to the remote server'."}
+
+
+{
+    "statusCode": 200,
+    "headers": {
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "Date": "Tue, 03 Jan 2017 18:22:28 GMT",
+        "Server": "Microsoft-IIS/8.0",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Content-Length": "3",
+        "Content-Type": "application/xml",
+        "Expires": "-1"
+    },
+    "body": {
+        "$content-type": "application/xml",
+        "$content": "77u/"
+    }
+}
+
+@json(xml(base64toBinary(item()['payload'])))",
+
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error		Input validation error: The 'CreateDate' element is invalid - The value '2014-08-16' is invalid according to its datatype 'http://www.w3.org/2001/XMLSchema:dateTime' - The string '2014-08-16' is not a valid DateTime value.		C:\Users\hse\Source\Repos\BCBSIntegrationAccount\test.xml	1

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-16"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:var="http://schemas.microsoft.com/BizTalk/2003/var" exclude-result-prefixes="msxsl var s0 s1 s2 userCSharp" version="1.0" xmlns:s0="http://hl7.org/fhir" xmlns:ns0="http://BCBSIntegrationAccount.Database" xmlns:s1="http://www.w3.org/XML/1998/namespace" xmlns:s2="http://www.w3.org/1999/xhtml" xmlns:userCSharp="http://schemas.microsoft.com/BizTalk/2003/userCSharp">
-  <xsl:import href="https://az818438.vo.msecnd.net/functoids/functoidsscript.xslt" />
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:var="http://schemas.microsoft.com/BizTalk/2003/var" exclude-result-prefixes="msxsl var s0 s1 s2 userCSharp" version="1.0" xmlns:s0="http://hl7.org/fhir" xmlns:ns0="http://BCBSIntegrationAccount.Database" xmlns:s2="http://www.w3.org/1999/xhtml" xmlns:userCSharp="http://schemas.microsoft.com/BizTalk/2003/userCSharp">
   <xsl:output omit-xml-declaration="yes" method="xml" version="1.0" />
   <xsl:template match="/">
     <xsl:apply-templates select="/s0:EligibilityRequest" />
@@ -10,12 +9,9 @@
       <xsl:for-each select="s0:priority">
         <xsl:for-each select="s0:coding">
           <xsl:for-each select="s0:system">
-            <xsl:variable name="var:v2" select="userCSharp:DateCurrentDateTime()" />
-            <xsl:variable name="var:v3" select="userCSharp:MathInt(&quot;0&quot;)" />
             <value>
-              <xsl:variable name="var:v1" select="userCSharp:RequestId()" />
               <RequestId>
-                <xsl:value-of select="$var:v1" />
+               "{DF7313B8-94A2-40A7-9902-5D9E297D217A}"
               </RequestId>
               <xsl:if test="../../../s0:id/@value">
                 <PatientID>
@@ -33,7 +29,7 @@
                 </Patient>
               </xsl:if>
               <CreateDate>
-                <xsl:value-of select="$var:v2" />
+                "2017-01-03T09:30:10Z"
               </CreateDate>
               <xsl:if test="@value">
                 <PriorityCode>
@@ -56,7 +52,7 @@
                 </Coverage>
               </xsl:if>
               <Processed>
-                <xsl:value-of select="$var:v3" />
+                "0"
               </Processed>
             </value>
           </xsl:for-each>
@@ -64,15 +60,4 @@
       </xsl:for-each>
     </ns0:body>
   </xsl:template>
-  <msxsl:script language="C#" implements-prefix="userCSharp"><![CDATA[
-public string RequestId()
-{
-             Guid obj = Guid.NewGuid();
-             return obj.ToString();
-
-}
-
-
-
-]]></msxsl:script>
 </xsl:stylesheet>

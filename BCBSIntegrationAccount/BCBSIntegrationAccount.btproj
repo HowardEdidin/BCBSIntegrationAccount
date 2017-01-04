@@ -112,6 +112,13 @@
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
+  <ItemGroup>
+    <Schema Include="xml.xsd">
+      <TypeName>xml</TypeName>
+      <Namespace>BCBSIntegrationAccount</Namespace>
+      <SubType>Designer</SubType>
+    </Schema>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.CurrentVersion.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Azure Integration SDK\IntegrationTasks.targets" />
 </Project>

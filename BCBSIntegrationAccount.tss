@@ -4,14 +4,5 @@
     <ArrayOfString>
       <string>Start Page</string>
     </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\Users\hse\Source\Repos\BCBSIntegrationAccount\BCBSIntegrationAccount\EligibilityRequestToDatabase.btm</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\Users\hse\Source\Repos\BCBSIntegrationAccount\BCBSIntegrationAccount\Database.xsd</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\Users\hse\AppData\Local\Temp\_MapData\BCBSIntegrationAccount\EligibilityRequestToDatabase.xsl</string>
-    </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

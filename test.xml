@@ -1,0 +1,14 @@
+<ns0:body xmlns:ns0="http://BCBSIntegrationAccount.Database">
+  <value>
+	<RequestId>{DF7313B8-94A2-40A7-9902-5D9E297D217A}</RequestId>
+	<PatientID>52345</PatientID>
+	<Status>active</Status>
+	<Patient>Patient/pat1</Patient>
+	<CreateDate>2017-01-03T09:30:10Z</CreateDate>
+	<PriorityCode>normal</PriorityCode>
+	<Organization>Organization/1</Organization>
+	<Insurer>Organization/2</Insurer>
+	<Coverage>Coverage/9876B1</Coverage>
+	<Processed>0</Processed>
+  </value>
+</ns0:body>
